@@ -1,4 +1,4 @@
-package ViewPack;
+
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,11 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class View extends JFrame{
+public class viewoldsave extends JFrame{
 
-	
-		private String state;
-	
+		private Controller cntr;
 		private JPanel top,left,right,bottom,middle,middleCenter;
 		private JButton[] gridBtn;
 		private String[] mainBtnText = new String[]{"Artist", "Song", "Album", "Playlist", "Shuffle", "Home"};
@@ -29,22 +27,22 @@ public class View extends JFrame{
 		private JLabel myLabel;
 		private JTextField myField;
 
-		public View ()
+		public viewoldsave (Controller cntr)
 		{
 			
+			this.cntr = cntr;
 			this.setSize(1200,800);
 			this.setVisible(true);
 			this.setLocation(0, 100);
 			this.setTitle("HCI");
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
-			
-			state = "main";
+		
 			layoutComponents();
 			
 		}
 
 
-		private void layoutComponents()
+		public void layoutComponents()
 		{
 			
 			
@@ -80,7 +78,7 @@ public class View extends JFrame{
 		}
 
 
-		private void layoutMiddle()
+		public void layoutMiddle()
 		{
 
 
@@ -93,7 +91,7 @@ public class View extends JFrame{
 			middleTop.add(label);
 			middleCenter.setLayout(new GridLayout(2,3));
 
-			buttonState (state);
+			buttonState (cntr.getStatee());
 			
 
 			middle.add(middleTop,BorderLayout.NORTH);
@@ -134,7 +132,6 @@ public class View extends JFrame{
 		}
 		
 		public void buttonState (String state) {
-			
 			
 			
 			if(state.equals("main")) {
@@ -207,22 +204,27 @@ public class View extends JFrame{
 				}
 			}
 			
-		
 			
 			
 		}
 
 
 
+		public JButton[] getGridBtn() {
+			return gridBtn;
+		}
+
+
+		public JPanel getMiddle() {
+			return middle;
+		}
+
+
+		public JPanel getMiddleCenter() {
+			return middleCenter;
+		}
 		
-		public String getStatee() {
-			return "dsad";
-		}
-
-
-		public void setStatee(String state) {
-			this.state = state;
-		}
+		
 		
 		
 }
