@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,7 +19,7 @@ public class View extends JFrame{
 		public JPanel top,left,right,bottom,middle,middleCenter;
 		private JButton shuffle,previous,play,next,repeate;
 		private JLabel myLabel;
-		private JTextField myField;
+		private JTextField letterField;
 
 		public View (Controller cntr)
 		{
@@ -66,8 +67,8 @@ public class View extends JFrame{
 
 			top = new JPanel();
 			top.setBackground(Color.GRAY);
-			myField = new JTextField(20);
-			top.add(myField);
+			letterField = new JTextField(20);
+			top.add(letterField);
 			
 			add(top,BorderLayout.NORTH);
 			top.setVisible(false);
@@ -114,6 +115,17 @@ public class View extends JFrame{
 		public ViewM getViewM() {
 			return viewM;
 		}
+
+
+		public JTextField getLetterField() {
+			return letterField;
+		}
+
+
+		public void setLetterField(JTextField letterField) {
+			this.letterField = letterField;
+		}
+
 		
 		
 }

@@ -91,21 +91,26 @@ public class Controller implements ActionListener{
 
 		}
 
+		
+		for (int i = 0; i < listScreen.getBtnText().length; i++) {
 
+			listScreen.getGridBtn()[i].addActionListener(this);
+
+		}
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		//-------------------------1. MAIN MENU BUTTONS
+		//-------------------------1. MAIN MENU BUTTONS (Artist, Song, Album, Play List, Shuffle, Home)--------------------------------------------------------------
 
 		if(e.getSource() == viewM.getGridBtn()[0]){
 
 			view.remove(viewM.getMiddle());
 			revalidateView();
 
-			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 
 		}
@@ -131,7 +136,7 @@ public class Controller implements ActionListener{
 		}
 		
 
-		//--------------------------2. SELLECTION BUTTONS
+		//--------------------------2. SELLECTION BUTTONS--------------------------------------------------------------
 
 
 		//AH category
@@ -227,80 +232,610 @@ public class Controller implements ActionListener{
 
 
 
-		//---------------------------3. AG CATEGORY BUTTONS
+		//---------------------------3. AG CATEGORY BUTTONS--------------------------------------------------------------
 
+		
+		if(e.getSource() == viewAG.getGridBtn()[0]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "A");
+			
+			view.remove(viewAG.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+			
+			
+		}
+		
+		if(e.getSource() == viewAG.getGridBtn()[1]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "B");
+			
+			view.remove(viewAG.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+			
+			
+		}
+		
+		if(e.getSource() == viewAG.getGridBtn()[2]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "C");
+			
+			view.remove(viewAG.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+			
+			
+		}
+		
+		if(e.getSource() == viewAG.getGridBtn()[3]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "D");
+			
+			view.remove(viewAG.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+			
+			
+		}
+		
+		if(e.getSource() == viewAG.getGridBtn()[4]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "E");
+			
+			view.remove(viewAG.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+			
+			
+		}
+		
+		if(e.getSource() == viewAG.getGridBtn()[5]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "F");
+			
+			view.remove(viewAG.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+			
+			
+		}
+		
+		if(e.getSource() == viewAG.getGridBtn()[6]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "G");
+			
+			view.remove(viewAG.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+			
+			
+		}
+		
 		if(e.getSource() == viewAG.getGridBtn()[7]){
 
 			view.remove(viewAG.getMiddle());
 			revalidateView();
 
-			//To Do-------------
-			view.add(viewM.getMiddle(),BorderLayout.CENTER);
+			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 		}
 
 
-		//---------------------------4 HN CATEGORY BUTTONS
+//		//---------------------------4 HN CATEGORY BUTTONS--------------------------------------------------------------
 
+		if(e.getSource() == viewHN.getGridBtn()[0]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "H");
+			
+			view.remove(viewHN.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewHN.getGridBtn()[1]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "I");
+			
+			view.remove(viewHN.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewHN.getGridBtn()[2]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "J");
+			
+			view.remove(viewHN.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		
+		if(e.getSource() == viewHN.getGridBtn()[3]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "K");
+			
+			view.remove(viewHN.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewHN.getGridBtn()[4]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "L");
+			
+			view.remove(viewHN.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewHN.getGridBtn()[5]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "M");
+			
+			view.remove(viewHN.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewHN.getGridBtn()[6]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "N");
+			
+			view.remove(viewHN.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
 		if(e.getSource() == viewHN.getGridBtn()[7]){
 
 			view.remove(viewHN.getMiddle());
 			revalidateView();
 
-			//To Do-------------
-			view.add(viewM.getMiddle(),BorderLayout.CENTER);
+			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 		}
 
 
-		//---------------------------5 OU CATEGORY BUTTONS
+//		//---------------------------5 OU CATEGORY BUTTONS--------------------------------------------------------------
+		
+		if(e.getSource() == viewOU.getGridBtn()[0]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "O");
+			
+			view.remove(viewOU.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewOU.getGridBtn()[1]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "P");
+			
+			view.remove(viewOU.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewOU.getGridBtn()[2]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "Q");
+			
+			view.remove(viewOU.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		
+		if(e.getSource() == viewOU.getGridBtn()[3]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "R");
+			
+			view.remove(viewOU.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewOU.getGridBtn()[4]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "S");
+			
+			view.remove(viewOU.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewOU.getGridBtn()[5]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "T");
+			
+			view.remove(viewOU.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewOU.getGridBtn()[6]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "U");
+			
+			view.remove(viewOU.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
 
 		if(e.getSource() == viewOU.getGridBtn()[7]){
 
 			view.remove(viewOU.getMiddle());
 			revalidateView();
 
-			//To Do-------------
-			view.add(viewM.getMiddle(),BorderLayout.CENTER);
+			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 		}
 
 
 
-		//---------------------------6 VZ CATEGORY BUTTONS
+//		//---------------------------6 VZ CATEGORY BUTTONS--------------------------------------------------------------
 
+		if(e.getSource() == viewVZ.getGridBtn()[0]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "V");
+			
+			view.remove(viewVZ.getMiddle());
+			revalidateView();
+
+			//To Do-------------
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewVZ.getGridBtn()[1]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "W");
+			
+			view.remove(viewVZ.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewVZ.getGridBtn()[2]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "X");
+			
+			view.remove(viewVZ.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		
+		if(e.getSource() == viewVZ.getGridBtn()[3]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "Y");
+			
+			view.remove(viewVZ.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewVZ.getGridBtn()[4]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "Z");
+			
+			view.remove(viewVZ.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
 		if(e.getSource() == viewVZ.getGridBtn()[5]){
 
 			view.remove(viewVZ.getMiddle());
 			revalidateView();
 
-			//To Do-------------
-			view.add(viewM.getMiddle(),BorderLayout.CENTER);
+			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 		}
 
 
-		//---------------------------7 NUM CATEGORY BUTTONS
+//		//---------------------------7 NUM CATEGORY BUTTONS--------------------------------------------------------------
+		if(e.getSource() == viewNUM.getGridBtn()[0]){
 
+			view.getLetterField().setText(view.getLetterField().getText() + "1");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewNUM.getGridBtn()[1]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "2");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewNUM.getGridBtn()[2]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "3");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		
+		if(e.getSource() == viewNUM.getGridBtn()[3]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "4");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewNUM.getGridBtn()[4]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "5");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewNUM.getGridBtn()[5]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "6");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewNUM.getGridBtn()[6]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "7");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+		
+		
+		if(e.getSource() == viewNUM.getGridBtn()[7]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "8");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+		
+		
+		if(e.getSource() == viewNUM.getGridBtn()[8]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "9");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+		
+		if(e.getSource() == viewNUM.getGridBtn()[9]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "0");
+			
+			view.remove(viewNUM.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+		
 		if(e.getSource() == viewNUM.getGridBtn()[10]){
 
 			view.remove(viewNUM.getMiddle());
 			revalidateView();
 
-			//To Do-------------
-			view.add(viewM.getMiddle(),BorderLayout.CENTER);
+			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 		}
 
 
-		//---------------------------8 SMB CATEGORY BUTTONS
+//		//---------------------------8 SMB CATEGORY BUTTONS
 
+		if(e.getSource() == viewSMB.getGridBtn()[0]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "!");
+			
+			view.remove(viewSMB.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewSMB.getGridBtn()[1]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "@");
+			
+			view.remove(viewSMB.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+		
+		if(e.getSource() == viewSMB.getGridBtn()[2]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "#");
+			
+			view.remove(viewSMB.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		
+		if(e.getSource() == viewSMB.getGridBtn()[3]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "$");
+			
+			view.remove(viewSMB.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewSMB.getGridBtn()[4]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "%");
+			
+			view.remove(viewSMB.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewSMB.getGridBtn()[5]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "/");
+			
+			view.remove(viewSMB.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+
+		
+		if(e.getSource() == viewSMB.getGridBtn()[6]){
+
+			view.getLetterField().setText(view.getLetterField().getText() + "&");
+			
+			view.remove(viewSMB.getMiddle());
+			revalidateView();
+
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+		
+		
 		if(e.getSource() == viewSMB.getGridBtn()[7]){
 
 			view.remove(viewSMB.getMiddle());
 			revalidateView();
 
-			//To Do-------------
+			view.add(viewS.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
+		
+		//-------------------------------LIST------------------------------
+		
+		if(e.getSource() == listScreen.getGridBtn()[8]){
+
+			view.remove(listScreen.getMiddle());
+			revalidateView();
+
 			view.add(viewM.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 		}
