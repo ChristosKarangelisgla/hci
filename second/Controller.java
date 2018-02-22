@@ -18,6 +18,7 @@ public class Controller implements ActionListener{
 	ViewVZ viewVZ;
 	ViewNUM viewNUM;
 	ViewSMB viewSMB;
+	ListScreen listScreen;
 
 
 
@@ -38,6 +39,7 @@ public class Controller implements ActionListener{
 		viewVZ = new ViewVZ();
 		viewNUM = new ViewNUM();
 		viewSMB = new ViewSMB();
+		listScreen = new ListScreen();
 
 
 
@@ -103,10 +105,31 @@ public class Controller implements ActionListener{
 			view.remove(viewM.getMiddle());
 			revalidateView();
 
+			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+
+		}
+		
+		if(e.getSource() == viewM.getGridBtn()[1]){
+
+			view.remove(viewM.getMiddle());
+			revalidateView();
+
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 
 		}
+		
+		if(e.getSource() == viewM.getGridBtn()[2]){
+
+			view.remove(viewM.getMiddle());
+			revalidateView();
+
+			view.add(viewS.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+
+		}
+		
 
 		//--------------------------2. SELLECTION BUTTONS
 

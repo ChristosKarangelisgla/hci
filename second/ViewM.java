@@ -22,8 +22,7 @@ public class ViewM extends JFrame{
 	
 
 		layoutMiddle();
-		
-		System.err.println("new view created");
+
 	
 	}
 	

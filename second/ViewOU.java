@@ -20,8 +20,7 @@ public class ViewOU extends JFrame{
 	public ViewOU () {
 
 		layoutMiddle();
-		
-		System.err.println("new view created");
+
 	
 	}
 	

@@ -20,9 +20,7 @@ public class ViewHN extends JFrame{
 	
 
 		layoutMiddle();
-		
-		System.err.println("new view created");
-	
+
 	}
 	
 	public void layoutMiddle()

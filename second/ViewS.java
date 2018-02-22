@@ -20,9 +20,7 @@ public class ViewS extends JFrame{
 	public ViewS () {
 
 		layoutMiddle();
-		
-		System.err.println("new view created");
-	
+
 	}
 	
 	public void layoutMiddle()

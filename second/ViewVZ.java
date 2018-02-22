@@ -20,9 +20,7 @@ public class ViewVZ extends JFrame{
 	public ViewVZ () {
 
 		layoutMiddle();
-		
-		System.err.println("new view created");
-	
+
 	}
 	
 	public void layoutMiddle()

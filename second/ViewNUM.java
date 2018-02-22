@@ -20,9 +20,7 @@ public class ViewNUM extends JFrame{
 	public ViewNUM () {
 
 		layoutMiddle();
-		
-		System.err.println("new view created");
-	
+
 	}
 	
 	public void layoutMiddle()

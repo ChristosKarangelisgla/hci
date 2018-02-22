@@ -20,8 +20,6 @@ public class ViewAG extends JFrame{
 	public ViewAG () {
 	
 		layoutMiddle();
-		
-		System.err.println("new view created");
 	
 	}
 	

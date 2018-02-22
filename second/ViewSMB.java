@@ -20,9 +20,7 @@ public class ViewSMB extends JFrame{
 	public ViewSMB () {
 
 		layoutMiddle();
-		
-		System.err.println("new view created");
-	
+
 	}
 	
 	public void layoutMiddle()
