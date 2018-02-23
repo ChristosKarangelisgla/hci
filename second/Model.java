@@ -12,6 +12,7 @@ public class Model {
 			"Barbra Streisand","Bruno Mars","Kanye West","Bruce Springsteen","Bee Gees"};
 
 	String[] selectionList;
+	String[] selectionList2;
 	String[] tempList;
 	ListScreen listScreen;
 
@@ -25,7 +26,7 @@ public class Model {
 		int z = 0;
 		for (int i = 0; i < artists.length; i++) {
 
-			if (letter.equals(String.valueOf(artists[i].charAt(position)))){
+			if (letter.equalsIgnoreCase(String.valueOf(artists[i].charAt(position)))){
 				tempList[z] =  artists[i];
 				z++;
 			}
@@ -57,9 +58,57 @@ public class Model {
 			selectionList[0] = "Item Not Found";
 		}
 		
+		Arrays.toString(selectionList);
 		//System.err.println(Arrays.toString(tempList));
-		System.err.println(Arrays.toString(selectionList));
+		//System.err.println(Arrays.toString(selectionList));
 		listScreen.createBoxList(selectionList);
+	}
+	
+	
+	public void findLetterPos2(String letter, int position) {
+
+		tempList = new String[selectionList.length];
+		System.err.println(Arrays.toString(selectionList));
+		int z = 0;
+		for (int i = 0; i < selectionList.length; i++) {
+
+			if (letter.equalsIgnoreCase(String.valueOf(selectionList[i].charAt(position)))){
+				tempList[z] =  selectionList[i];
+				z++;
+			}
+		}
+
+		selectionList2 = new String[z];
+		for (int i = 0; i < selectionList.length; i++) {
+			if(tempList[i] != null) {
+				selectionList2[i] = tempList[i];
+	
+			}
+		}
+		
+		for (int i = 0; i < 8; i++) {
+			//System.err.println(selectionList[i].charAt(position+1));
+			listScreen.getGridBtn()[i].setText("");
+
+	}
+		
+		for (int i = 0; i < selectionList2.length; i++) {
+				//System.err.println(selectionList[i].charAt(position+1));
+			char temp = selectionList2[i].charAt(position+1);
+			listScreen.getGridBtn()[i].setText(Character.toString(temp).toUpperCase());
+	
+		}
+		
+		if(z == 0) {
+			selectionList2 = new String[1];
+			selectionList2[0] = "Item Not Found";
+		}
+		
+		
+		//System.err.println(Arrays.toString(tempList));
+		Arrays.toString(selectionList2);
+		//listScreen.middleCenter.removeAll();
+		listScreen.createBoxList(selectionList2);
 	}
 
 	//	public void read() {

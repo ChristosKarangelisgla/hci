@@ -23,7 +23,8 @@ public class Controller implements ActionListener{
 	ListScreen listScreen;
 	Model model;
 	Player player;
-
+	public int clicks;
+	Counter counter;
 
 	public Controller () {
 
@@ -46,7 +47,9 @@ public class Controller implements ActionListener{
 		model = new Model(listScreen);
 		player = new Player(this);
 
-
+		
+		clicks = 0;
+		counter = new Counter(true);
 
 		for (int i = 0; i < viewM.getBtnText().length; i++) {
 
@@ -243,7 +246,7 @@ public class Controller implements ActionListener{
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 			model.findLetter(view.getLetterField().getText(), 0); 
-			System.err.println(view.getLetterField().getText());
+			//System.err.println(view.getLetterField().getText());
 			
 		}
 		
@@ -814,7 +817,66 @@ public class Controller implements ActionListener{
 		
 		//-------------------------------LIST------------------------------
 		
+		if(e.getSource() == listScreen.getGridBtn()[0]){
+			
+			listScreen.middleRight.removeAll();
+			model.findLetterPos2(listScreen.getGridBtn()[0].getText(), 1);
+			revalidateView();
+	
+		}
+		
+		if(e.getSource() == listScreen.getGridBtn()[1]){
+			
+			listScreen.middleRight.removeAll();
+			model.findLetterPos2(listScreen.getGridBtn()[1].getText(), 1);
+			revalidateView();
+		}
+		
+		if(e.getSource() == listScreen.getGridBtn()[2]){
+			
+			listScreen.middleRight.removeAll();
+			model.findLetterPos2(listScreen.getGridBtn()[2].getText(), 1);
+			revalidateView();
+		}
+		
+		if(e.getSource() == listScreen.getGridBtn()[3]){
+			
+			listScreen.middleRight.removeAll();
+			model.findLetterPos2(listScreen.getGridBtn()[3].getText(), 1);
+			revalidateView();
+		}
+		
+		if(e.getSource() == listScreen.getGridBtn()[4]){
+			
+			listScreen.middleRight.removeAll();
+			model.findLetterPos2(listScreen.getGridBtn()[4].getText(), 1);
+			revalidateView();
+		}
+		
+		if(e.getSource() == listScreen.getGridBtn()[5]){
+			
+			listScreen.middleRight.removeAll();
+			model.findLetterPos2(listScreen.getGridBtn()[5].getText(), 1);
+			revalidateView();
+		}
+		
+		if(e.getSource() == listScreen.getGridBtn()[6]){
+			
+			listScreen.middleRight.removeAll();
+			model.findLetterPos2(listScreen.getGridBtn()[6].getText(), 1);
+			revalidateView();
+		}
+		
+		
+		if(e.getSource() == listScreen.getGridBtn()[7]){
+			
+			listScreen.middleRight.removeAll();
+			model.findLetterPos2(listScreen.getGridBtn()[7].getText(), 1);
+			revalidateView();
+		}
+			
 		if(e.getSource() == listScreen.getGridBtn()[8]){
+			
 			listScreen.middleRight.removeAll();
 			view.getLetterField().setText("");
 			view.remove(listScreen.getMiddle());
@@ -836,6 +898,10 @@ public class Controller implements ActionListener{
 			view.add(viewM.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 		}
+		
+		clicks++;
+		
+	
 	}
 	
 	

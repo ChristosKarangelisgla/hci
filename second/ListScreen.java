@@ -94,6 +94,8 @@ public class ListScreen extends JFrame{
 		      public void valueChanged(ListSelectionEvent evt) {
 		         String value = list.getSelectedValue().toString();
 		         contr.player(value);
+		         System.err.println("Took " + contr.clicks + " clicks to find a artist");
+		         contr.clicks = 0;
 		        }
 		  });
 
