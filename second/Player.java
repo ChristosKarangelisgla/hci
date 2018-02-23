@@ -9,73 +9,51 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class ViewM extends JFrame{
+public class Player extends JFrame{
 	
+	Controller contr;
 	
 	String state;
 	private JPanel middle,middleCenter;
-	private JButton[] gridBtn;
-	private String[] btnText = new String[]{"Artist", "Song", "Album", "Playlist", "Shuffle", "Home"};
-
+	public JButton backBtn;
+	public JLabel label;
 	
-	public ViewM () {
-	
-
+	public Player(Controller contr) {
+		
+		this.contr = contr;
 		layoutMiddle();
-
 	
 	}
 	
 	public void layoutMiddle()
 	{
 
-
+		
+		label = new JLabel("Song Playing");
+		label.setFont(new Font("Arial", Font.PLAIN, 50));
+		backBtn = new JButton("Back");
+		backBtn.setFont(new Font("Arial", Font.PLAIN, 40));
 		middle = new JPanel();
 		middle.setLayout(new BorderLayout());
 		JPanel middleTop = new JPanel();
 		middleCenter = new JPanel();
 		middleTop.setBackground(Color.white);
-		JLabel label = new JLabel("Select Letter Category");
+		//JLabel label = new JLabel("Player");
 		middleTop.add(label);
 		middleCenter.setLayout(new GridLayout(2,3));
+		middleCenter.add(label);
+		middleCenter.add(backBtn);
 
-		gridBtn = new JButton[btnText.length];
-		for (int i = 0; i < btnText.length; i++) {
-			
-			gridBtn[i] = new JButton(btnText[i]);
-			gridBtn[i].setFont(new Font("Arial", Font.PLAIN, 30));
-			middleCenter.add(gridBtn[i]);
-		}
 
 		middle.add(middleTop,BorderLayout.NORTH);
 		middle.add(middleCenter,BorderLayout.CENTER);
-		//view.add(middle,BorderLayout.CENTER);
 		
-		
-		
+
 	}
 	
-		
-		
-	public String[] getBtnText() {
-		return btnText;
-	}
-
-
-
-	public JButton[] getGridBtn() {
-		return gridBtn;
-	}
-
-
+	
 	public JPanel getMiddle() {
 		return middle;
 	}
-
-
-	public JPanel getMiddleCenter() {
-		return middleCenter;
-	}
-	
 
 }

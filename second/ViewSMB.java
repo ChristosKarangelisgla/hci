@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -9,9 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class ViewSMB extends JFrame{
-	
-	View view;
-	
+
 	String state;
 	private JPanel middle,middleCenter;
 	private JButton[] gridBtn;
@@ -40,6 +39,7 @@ public class ViewSMB extends JFrame{
 		for (int i = 0; i < btnText.length; i++) {
 			
 			gridBtn[i] = new JButton(btnText[i]);
+			gridBtn[i].setFont(new Font("Arial", Font.PLAIN, 30));
 			middleCenter.add(gridBtn[i]);
 		}
 

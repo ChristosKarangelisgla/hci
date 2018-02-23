@@ -18,7 +18,7 @@ public class View extends JFrame{
 		private Controller cntr;
 		public JPanel top,left,right,bottom,middle,middleCenter;
 		private JButton shuffle,previous,play,next,repeate;
-		private JLabel myLabel;
+		public JLabel myLabel;
 		private JTextField letterField;
 
 		public View (Controller cntr)

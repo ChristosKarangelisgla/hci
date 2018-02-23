@@ -1,5 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -40,6 +41,7 @@ public class ViewHN extends JFrame{
 		for (int i = 0; i < btnText.length; i++) {
 			
 			gridBtn[i] = new JButton(btnText[i]);
+			gridBtn[i].setFont(new Font("Arial", Font.PLAIN, 30));
 			middleCenter.add(gridBtn[i]);
 		}
 

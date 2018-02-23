@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class Controller implements ActionListener{
 
@@ -19,7 +21,8 @@ public class Controller implements ActionListener{
 	ViewNUM viewNUM;
 	ViewSMB viewSMB;
 	ListScreen listScreen;
-
+	Model model;
+	Player player;
 
 
 	public Controller () {
@@ -39,7 +42,9 @@ public class Controller implements ActionListener{
 		viewVZ = new ViewVZ();
 		viewNUM = new ViewNUM();
 		viewSMB = new ViewSMB();
-		listScreen = new ListScreen();
+		listScreen = new ListScreen(this);
+		model = new Model(listScreen);
+		player = new Player(this);
 
 
 
@@ -97,8 +102,13 @@ public class Controller implements ActionListener{
 			listScreen.getGridBtn()[i].addActionListener(this);
 
 		}
-
+		
+		player.backBtn.addActionListener(this);
+		
+		 
 	}
+	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -108,7 +118,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewM.getGridBtn()[0]){
 
 			view.remove(viewM.getMiddle());
-			revalidateView();
 
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -118,7 +127,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewM.getGridBtn()[1]){
 
 			view.remove(viewM.getMiddle());
-			revalidateView();
 
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -128,7 +136,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewM.getGridBtn()[2]){
 
 			view.remove(viewM.getMiddle());
-			revalidateView();
 
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -143,7 +150,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewS.getGridBtn()[0]){
 
 			view.remove(viewS.getMiddle());
-			revalidateView();
 
 			view.add(viewAG.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -154,7 +160,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewS.getGridBtn()[1]){
 
 			view.remove(viewS.getMiddle());
-			revalidateView();
 
 			view.add(viewHN.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -166,7 +171,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewS.getGridBtn()[2]){
 
 			view.remove(viewS.getMiddle());
-			revalidateView();
 
 			view.add(viewOU.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -177,7 +181,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewS.getGridBtn()[3]){
 
 			view.remove(viewS.getMiddle());
-			revalidateView();
 
 			view.add(viewVZ.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -188,7 +191,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewS.getGridBtn()[4]){
 
 			view.remove(viewS.getMiddle());
-			revalidateView();
 
 			view.add(viewNUM.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -199,7 +201,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewS.getGridBtn()[5]){
 
 			view.remove(viewS.getMiddle());
-			revalidateView();
 
 			view.add(viewSMB.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -210,7 +211,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewS.getGridBtn()[6]){
 
 			view.remove(viewS.getMiddle());
-			revalidateView();
 
 			view.add(viewM.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -221,7 +221,6 @@ public class Controller implements ActionListener{
 		if(e.getSource() == viewS.getGridBtn()[7]){
 
 			view.remove(viewS.getMiddle());
-			revalidateView();
 
 			view.add(viewM.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -240,11 +239,11 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "A");
 			
 			view.remove(viewAG.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
-			
+			model.findLetter(view.getLetterField().getText(), 0); 
+			System.err.println(view.getLetterField().getText());
 			
 		}
 		
@@ -253,12 +252,11 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "B");
 			
 			view.remove(viewAG.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 			
-			
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 		
 		if(e.getSource() == viewAG.getGridBtn()[2]){
@@ -266,11 +264,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "C");
 			
 			view.remove(viewAG.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
-			
+			model.findLetter(view.getLetterField().getText(), 0); 
 			
 		}
 		
@@ -279,11 +276,9 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "D");
 			
 			view.remove(viewAG.getMiddle());
-			revalidateView();
-
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
-			
+			model.findLetter(view.getLetterField().getText(), 0); 
 			
 		}
 		
@@ -292,11 +287,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "E");
 			
 			view.remove(viewAG.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
-			
+			model.findLetter(view.getLetterField().getText(), 0); 
 			
 		}
 		
@@ -305,11 +299,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "F");
 			
 			view.remove(viewAG.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
-			
+			model.findLetter(view.getLetterField().getText(), 0); 
 			
 		}
 		
@@ -318,18 +311,16 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "G");
 			
 			view.remove(viewAG.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
-			
+			model.findLetter(view.getLetterField().getText(), 0); 
 			
 		}
 		
 		if(e.getSource() == viewAG.getGridBtn()[7]){
 
 			view.remove(viewAG.getMiddle());
-			revalidateView();
 
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -343,10 +334,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "H");
 			
 			view.remove(viewHN.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -355,10 +346,9 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "I");
 			
 			view.remove(viewHN.getMiddle());
-			revalidateView();
-
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -367,10 +357,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "J");
 			
 			view.remove(viewHN.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -380,10 +370,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "K");
 			
 			view.remove(viewHN.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -392,10 +382,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "L");
 			
 			view.remove(viewHN.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -404,10 +394,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "M");
 			
 			view.remove(viewHN.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -416,20 +406,20 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "N");
 			
 			view.remove(viewHN.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
 		if(e.getSource() == viewHN.getGridBtn()[7]){
 
 			view.remove(viewHN.getMiddle());
-			revalidateView();
 
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			
 		}
 
 
@@ -440,10 +430,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "O");
 			
 			view.remove(viewOU.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -452,10 +442,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "P");
 			
 			view.remove(viewOU.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -464,10 +454,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "Q");
 			
 			view.remove(viewOU.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -477,10 +467,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "R");
 			
 			view.remove(viewOU.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -489,10 +479,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "S");
 			
 			view.remove(viewOU.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -501,10 +491,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "T");
 			
 			view.remove(viewOU.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -513,16 +503,15 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "U");
 			
 			view.remove(viewOU.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		if(e.getSource() == viewOU.getGridBtn()[7]){
 
 			view.remove(viewOU.getMiddle());
-			revalidateView();
 
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -537,11 +526,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "V");
 			
 			view.remove(viewVZ.getMiddle());
-			revalidateView();
 
-			//To Do-------------
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -550,10 +538,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "W");
 			
 			view.remove(viewVZ.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -562,10 +550,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "X");
 			
 			view.remove(viewVZ.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -575,10 +563,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "Y");
 			
 			view.remove(viewVZ.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -587,17 +575,16 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "Z");
 			
 			view.remove(viewVZ.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
 		if(e.getSource() == viewVZ.getGridBtn()[5]){
 
 			view.remove(viewVZ.getMiddle());
-			revalidateView();
 
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -610,10 +597,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "1");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -622,10 +609,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "2");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -634,10 +621,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "3");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -647,10 +634,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "4");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -659,10 +646,11 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "5");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -671,10 +659,9 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "6");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
-
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -683,10 +670,9 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "7");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
-
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 		
 		
@@ -695,10 +681,9 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "8");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
-
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 		
 		
@@ -707,10 +692,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "9");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 		
 		if(e.getSource() == viewNUM.getGridBtn()[9]){
@@ -718,16 +703,15 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "0");
 			
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 		
 		if(e.getSource() == viewNUM.getGridBtn()[10]){
 
 			view.remove(viewNUM.getMiddle());
-			revalidateView();
 
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -741,10 +725,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "!");
 			
 			view.remove(viewSMB.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
-			revalidateView();
+
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -753,10 +737,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "@");
 			
 			view.remove(viewSMB.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 		
 		if(e.getSource() == viewSMB.getGridBtn()[2]){
@@ -764,10 +748,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "#");
 			
 			view.remove(viewSMB.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -777,10 +761,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "$");
 			
 			view.remove(viewSMB.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -789,10 +773,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "%");
 			
 			view.remove(viewSMB.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -801,10 +785,10 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "/");
 			
 			view.remove(viewSMB.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 
 		
@@ -813,17 +797,16 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText(view.getLetterField().getText() + "&");
 			
 			view.remove(viewSMB.getMiddle());
-			revalidateView();
 
 			view.add(listScreen.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			model.findLetter(view.getLetterField().getText(), 0); 
 		}
 		
 		
 		if(e.getSource() == viewSMB.getGridBtn()[7]){
 
 			view.remove(viewSMB.getMiddle());
-			revalidateView();
 
 			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
@@ -832,15 +815,42 @@ public class Controller implements ActionListener{
 		//-------------------------------LIST------------------------------
 		
 		if(e.getSource() == listScreen.getGridBtn()[8]){
-
+			listScreen.middleRight.removeAll();
+			view.getLetterField().setText("");
 			view.remove(listScreen.getMiddle());
-			revalidateView();
 
 			view.add(viewM.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
+			
 		}
-
+		
+		
+		//--------------Player--------------------------------
+		
+		
+		if(e.getSource() == player.backBtn){
+			view.add(view.top);
+			view.getLetterField().setText("");
+			view.remove(player.getMiddle());
+//
+			view.add(viewM.getMiddle(),BorderLayout.CENTER);
+			revalidateView();
+		}
 	}
+	
+	
+	public void player (String song) {
+		listScreen.middleRight.removeAll();
+		view.remove(view.top);
+		view.remove(listScreen.getMiddle());
+		player.label.setText("Playing - " + song);
+		revalidateView();
+		
+		view.add(player.getMiddle(),BorderLayout.CENTER);
+		revalidateView();
+		
+	}
+
 
 
 	public void revalidateView() {
