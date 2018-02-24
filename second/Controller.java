@@ -820,6 +820,7 @@ public class Controller implements ActionListener{
 		if(e.getSource() == listScreen.getGridBtn()[0]){
 			
 			listScreen.middleRight.removeAll();
+			view.getLetterField().setText(view.getLetterField().getText() + listScreen.getGridBtn()[0].getText());
 			model.findLetterPos2(listScreen.getGridBtn()[0].getText(), 1);
 			revalidateView();
 	
@@ -828,6 +829,7 @@ public class Controller implements ActionListener{
 		if(e.getSource() == listScreen.getGridBtn()[1]){
 			
 			listScreen.middleRight.removeAll();
+			view.getLetterField().setText(view.getLetterField().getText() + listScreen.getGridBtn()[0].getText());
 			model.findLetterPos2(listScreen.getGridBtn()[1].getText(), 1);
 			revalidateView();
 		}
@@ -835,6 +837,7 @@ public class Controller implements ActionListener{
 		if(e.getSource() == listScreen.getGridBtn()[2]){
 			
 			listScreen.middleRight.removeAll();
+			view.getLetterField().setText(view.getLetterField().getText() + listScreen.getGridBtn()[0].getText());
 			model.findLetterPos2(listScreen.getGridBtn()[2].getText(), 1);
 			revalidateView();
 		}
@@ -842,6 +845,7 @@ public class Controller implements ActionListener{
 		if(e.getSource() == listScreen.getGridBtn()[3]){
 			
 			listScreen.middleRight.removeAll();
+			view.getLetterField().setText(view.getLetterField().getText() + listScreen.getGridBtn()[0].getText());
 			model.findLetterPos2(listScreen.getGridBtn()[3].getText(), 1);
 			revalidateView();
 		}
@@ -849,6 +853,7 @@ public class Controller implements ActionListener{
 		if(e.getSource() == listScreen.getGridBtn()[4]){
 			
 			listScreen.middleRight.removeAll();
+			view.getLetterField().setText(view.getLetterField().getText() + listScreen.getGridBtn()[0].getText());
 			model.findLetterPos2(listScreen.getGridBtn()[4].getText(), 1);
 			revalidateView();
 		}
@@ -856,6 +861,7 @@ public class Controller implements ActionListener{
 		if(e.getSource() == listScreen.getGridBtn()[5]){
 			
 			listScreen.middleRight.removeAll();
+			view.getLetterField().setText(view.getLetterField().getText() + listScreen.getGridBtn()[0].getText());
 			model.findLetterPos2(listScreen.getGridBtn()[5].getText(), 1);
 			revalidateView();
 		}
@@ -863,6 +869,7 @@ public class Controller implements ActionListener{
 		if(e.getSource() == listScreen.getGridBtn()[6]){
 			
 			listScreen.middleRight.removeAll();
+			view.getLetterField().setText(view.getLetterField().getText() + listScreen.getGridBtn()[0].getText());
 			model.findLetterPos2(listScreen.getGridBtn()[6].getText(), 1);
 			revalidateView();
 		}
@@ -871,6 +878,7 @@ public class Controller implements ActionListener{
 		if(e.getSource() == listScreen.getGridBtn()[7]){
 			
 			listScreen.middleRight.removeAll();
+			view.getLetterField().setText(view.getLetterField().getText() + listScreen.getGridBtn()[0].getText());
 			model.findLetterPos2(listScreen.getGridBtn()[7].getText(), 1);
 			revalidateView();
 		}
@@ -881,7 +889,7 @@ public class Controller implements ActionListener{
 			view.getLetterField().setText("");
 			view.remove(listScreen.getMiddle());
 
-			view.add(viewM.getMiddle(),BorderLayout.CENTER);
+			view.add(viewS.getMiddle(),BorderLayout.CENTER);
 			revalidateView();
 			
 		}
